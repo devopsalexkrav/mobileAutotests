@@ -17,7 +17,7 @@ This project is a mobile automation testing framework for Android application us
 
 -Dplatform=android
 
-## 📌 В файле local.properties требуется добавить login и password
+## 📌 В файле local.properties требуется добавить login и password, так же требуется в android.properties прописать актуальный app
 
 ### ▶️ Запуск всех тестов
 
