@@ -1,37 +1,29 @@
 package config;
 
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
-import com.codeborne.selenide.logevents.SelenideLogger;
 import config.configReader.ConfigReader;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
-import io.qameta.allure.selenide.AllureSelenide;
 import org.openqa.selenium.WebDriver;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 
 public class MobileDriverProvider {
-
-    static {
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide().includeSelenideSteps(false));
-    }
-
-    public static void startDriver(){
+    public static void createDriver() {
         String platformName = ConfigReader.platformName();
         WebDriver webDriver;
 
-        if (platformName.equalsIgnoreCase("android")){
+        if (platformName.equalsIgnoreCase("android")) {
             webDriver = createAndroidDriver();
-        }else {
+        } else {
             throw new IllegalArgumentException("Unsupported platform: " + platformName);
         }
 
         WebDriverRunner.setWebDriver(webDriver);
     }
 
-    private static WebDriver createAndroidDriver(){
+    private static WebDriver createAndroidDriver() {
         URL url = null;
         try {
             url = new URL(ConfigReader.url());

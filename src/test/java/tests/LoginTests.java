@@ -3,15 +3,11 @@ package tests;
 import config.configReader.ConfigReader;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import steps.LoginPageSteps;
-import steps.MainPageSteps;
 import utils.TextUtils;
 
 public class LoginTests extends BaseTest {
     private static final String LOGIN = ConfigReader.login();
     private static final String PASSWORD = ConfigReader.password();
-    private LoginPageSteps loginPageSteps = new LoginPageSteps();
-    private MainPageSteps mainPageSteps = new MainPageSteps();
 
     @Test
     public void validLoginValidPasswordTest() {
